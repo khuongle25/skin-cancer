@@ -59,8 +59,8 @@ def mask_unused_gpus(leave_unmasked=1):
 
 def read_data():
     """Read data"""
-    train_dir = 'Skin cancer ISIC The International Skin Imaging Collaboration/Train'
-    test_dir = 'Skin cancer ISIC The International Skin Imaging Collaboration/Test'
+    train_dir = '/kaggle/input/skin-cancer9-classesisic/Skin cancer ISIC The International Skin Imaging Collaboration/Train'
+    test_dir = '/kaggle/input/skin-cancer9-classesisic/Skin cancer ISIC The International Skin Imaging Collaboration/Test'
 
     # Create dataframes
     train_df = pd.DataFrame(columns=['image_path', 'label'])
@@ -184,7 +184,7 @@ def data_augmentation(df):
                 
                 # Extract the augmented image arrays and add them to the augmented dataframe
                 for i in range(augmented_images.n):
-                    augmented_image_array = augmented_images.next()[0].astype('uint8')
+                    augmented_image_array = next(augmented_images)[0].astype('uint8')
                     augmented_df = pd.concat([augmented_df, pd.DataFrame({'image_path': [None], 'label': [class_label], 'image': [augmented_image_array]})], ignore_index=True)
         
         # Add the original images for the current class to the augmented dataframe
