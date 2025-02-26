@@ -19,7 +19,7 @@ import subprocess as sp
 
 import tensorflow as tf
 from tensorflow.keras import datasets
-from keras.src.legacy.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.utils import to_categorical # used for converting labels to one-hot-encoding
 
 from sklearn.model_selection import train_test_split
@@ -59,8 +59,8 @@ def mask_unused_gpus(leave_unmasked=1):
 
 def read_data():
     """Read data"""
-    train_dir = '/kaggle/input/skin-cancer9-classesisic/Skin cancer ISIC The International Skin Imaging Collaboration/Train'
-    test_dir = '/kaggle/input/skin-cancer9-classesisic/Skin cancer ISIC The International Skin Imaging Collaboration/Test'
+    train_dir = 'Skin cancer ISIC The International Skin Imaging Collaboration/Train'
+    test_dir = 'Skin cancer ISIC The International Skin Imaging Collaboration/Test'
 
     # Create dataframes
     train_df = pd.DataFrame(columns=['image_path', 'label'])
